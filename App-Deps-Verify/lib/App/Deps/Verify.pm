@@ -189,8 +189,8 @@ sub write_rpm_spec_from_yaml_file
 
     $self->write_rpm_spec_text_from_yaml_file_to_fh(
         +{
-            modules_fn => $args->{modules_fn},
-            out_fh     => scalar( path( $args->{out_fn} )->openw_utf8 ),
+            deps_fn => $args->{deps_fn},
+            out_fh  => scalar( path( $args->{out_fn} )->openw_utf8 ),
         }
     );
 
@@ -201,7 +201,7 @@ sub write_rpm_spec_text_from_yaml_file_to_fh
 {
     my ( $self, $args, ) = @_;
 
-    my ($yaml_data) = LoadFile( $args->{modules_fn} );
+    my ($yaml_data) = LoadFile( $args->{deps_fn} );
     return $self->write_rpm_spec_text_to_fh(
         {
             data   => $yaml_data,
@@ -291,3 +291,33 @@ EOF
 }
 
 1;
+
+=encoding utf8
+
+=head1 SYNOPSIS
+
+    use App::Deps::Verify ();
+
+    App::Deps::Verify->new->verify_deps_in_yamls(
+        +{ filenames => [ $opt->{input}, ] } );
+
+    path( $opt->{output} )->spew_utf8("Success!");
+
+=head1 METHODS
+
+=head2 $obj->verify_deps_in_yamls({filenames => [@FILENAMES]})
+
+Verify the presence of deps in all the YAML files.
+
+=head2 $obj->find_deps({inputs => [\%hash1, \%hash2, ...]})
+
+Verify the presence of deps in all the input hashes.
+
+=head2 $obj->write_rpm_spec_from_yaml_file({deps_fn => $path, out_fn => $path});
+
+=head2 $obj->write_rpm_spec_text_from_yaml_file_to_fh({deps_fn => $path, out_fh => $fh});
+
+=head2 $obj->write_rpm_spec_text_to_fh({data => $yaml_data, out_fh => $fh});
+
+=cut
+
