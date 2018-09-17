@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+# PODNAME: verify-deps
+
+use strict;
+use warnings;
+use App::Deps::Verify::App::VerifyDeps;
+
+App::Deps::Verify::App::VerifyDeps->run;
