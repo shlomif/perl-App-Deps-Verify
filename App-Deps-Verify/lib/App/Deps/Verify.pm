@@ -303,6 +303,20 @@ EOF
 
     path( $opt->{output} )->spew_utf8("Success!");
 
+=head1 DESCRIPTION
+
+Here are some examples for YAML input files:
+
+=over 4
+
+=item * L<https://github.com/shlomif/shlomi-fish-homepage/blob/master/bin/required-modules.yml>
+
+=item * L<https://github.com/shlomif/perl-begin/blob/master/bin/required-modules.yml>
+
+=item * L<https://github.com/shlomif/fc-solve/blob/master/fc-solve/site/wml/bin/required-modules.yml>
+
+=back
+
 =head1 METHODS
 
 =head2 $obj->verify_deps_in_yamls({filenames => [@FILENAMES]})
