@@ -1,5 +1,7 @@
 package App::Deps::Verify;
 
+# ABSTRACT: An app and API to verify the presence of dependencies (Perl 5 modules, python3 modules, executables, etc.
+
 use strict;
 use warnings;
 use autodie;
@@ -218,14 +220,14 @@ sub write_rpm_spec_text_to_fh
 
     my $keys = $yaml_data->{required}->{meta_data}->{'keys'};
     $o->print(<<"EOF");
-Summary:	$keys->{summary}
-Name:		$keys->{package_name}
-Version:	0.0.1
-Release:	%mkrel 1
-License:	MIT
-Group:		System
-Url:		$keys->{url}
-BuildArch:	noarch
+Summary:    $keys->{summary}
+Name:       $keys->{package_name}
+Version:    0.0.1
+Release:    %mkrel 1
+License:    MIT
+Group:      System
+Url:        $keys->{url}
+BuildArch:  noarch
 EOF
     {
     EXECUTABLES:
