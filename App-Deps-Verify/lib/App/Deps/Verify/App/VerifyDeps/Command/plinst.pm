@@ -1,4 +1,4 @@
-package App::Deps::Verify::App::VerifyDeps::Command::p5inst;
+package App::Deps::Verify::App::VerifyDeps::Command::plinst;
 
 use App::Deps::Verify::App::VerifyDeps -command;
 
