@@ -14,7 +14,7 @@ sub description { return abstract(); }
 
 sub opt_spec
 {
-    return ( [ "input|i=s", "the input file" ], );
+    return ( [ "input|i=s\@", "the input file" ], );
 }
 
 sub validate_args
@@ -34,7 +34,7 @@ sub execute
             "cpanm", "--",
             grep { /\A[A-Za-z0-9_:]+\z/ }
                 @{ App::Deps::Verify->new->list_perl5_modules_in_yamls(
-                    +{ filenames => [ $opt->{input}, ] }
+                    +{ filenames => [ @{ $opt->{input} }, ] }
                 )->{perl5_modules}
                 }
         )

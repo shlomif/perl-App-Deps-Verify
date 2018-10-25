@@ -15,8 +15,8 @@ sub description { return abstract(); }
 sub opt_spec
 {
     return (
-        [ "output|o=s", "path to output file" ],
-        [ "input|i=s",  "the input file" ],
+        [ "output|o=s",  "path to output file" ],
+        [ "input|i=s\@", "the input files" ],
     );
 }
 
@@ -33,7 +33,7 @@ sub execute
     my ( $self, $opt, $args ) = @_;
 
     App::Deps::Verify->new->verify_deps_in_yamls(
-        +{ filenames => [ $opt->{input}, ] } );
+        +{ filenames => [ @{ $opt->{input} }, ] } );
 
     path( $opt->{output} )->spew_utf8("Success!");
 }
