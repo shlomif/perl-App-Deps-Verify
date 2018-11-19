@@ -112,7 +112,7 @@ sub _find_perl5_modules
             my $v = $required_modules->{$m};
             local $SIG{__WARN__} = sub { };
             my $verdict = eval( "use $m " . ( $v || '' ) . ' ();' );
-            my $Err = $@;
+            my $Err     = $@;
 
             if ($Err)
             {
