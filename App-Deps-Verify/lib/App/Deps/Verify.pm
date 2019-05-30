@@ -293,6 +293,10 @@ EOF
                 {
                     $cmd = 'imagemagick';
                 }
+                elsif ( $cmd eq 'gm' )
+                {
+                    $cmd = 'graphicsmagick';
+                }
                 elsif ( $cmd eq 'minify' )
                 {
                     next EXECUTABLES;
