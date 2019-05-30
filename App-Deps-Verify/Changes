@@ -1,5 +1,8 @@
 Revision history for App-Deps-Verify
 
+0.8.2       2019-05-30
+    - Add docs to bin/deps-app - thanks to xcombelle.
+
 0.8.1       2019-05-30
     - Add support for the "gm" executable.
 
