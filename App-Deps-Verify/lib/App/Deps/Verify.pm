@@ -253,6 +253,12 @@ sub write_rpm_spec_text_from_yaml_file_to_fh
     );
 }
 
+my %EXES_TRANSLATIONS = (
+    convert => 'imagemagick',
+    gm      => 'graphicsmagick',
+    node    => 'nodejs',
+);
+
 sub write_rpm_spec_text_to_fh
 {
     my ( $self, $args, ) = @_;
@@ -279,31 +285,19 @@ Url:        $keys->{url}
 BuildArch:  noarch
 EOF
     {
-    EXECUTABLES:
         foreach my $exess ( map { $_->{required}->{executables} } @$yamls )
         {
+        EXECUTABLES:
             foreach my $line (@$exess)
             {
                 my $cmd = $line->{exe};
-                if ( $cmd eq 'sass' )
+                if ( $cmd eq 'sass' or $cmd eq 'minify' )
                 {
                     next EXECUTABLES;
                 }
-                elsif ( $cmd eq 'convert' )
+                elsif ( exists $EXES_TRANSLATIONS{$cmd} )
                 {
-                    $cmd = 'imagemagick';
-                }
-                elsif ( $cmd eq 'gm' )
-                {
-                    $cmd = 'graphicsmagick';
-                }
-                elsif ( $cmd eq 'minify' )
-                {
-                    next EXECUTABLES;
-                }
-                elsif ( $cmd eq 'node' )
-                {
-                    $cmd = 'nodejs';
+                    $cmd = $EXES_TRANSLATIONS{$cmd};
                 }
                 $o->print("Requires: $cmd\n");
             }
