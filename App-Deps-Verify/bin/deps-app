@@ -1,16 +1,13 @@
 #!/usr/bin/perl
 
-# PODNAME: deps-app - verify the presence of dependencies or install them.
+# PODNAME: deps-app
+# ABSTRACT: verify the presence of dependencies or install them.
 
 use strict;
 use warnings;
 use App::Deps::Verify::App::VerifyDeps;
 
 App::Deps::Verify::App::VerifyDeps->run;
-
-=head1 NAME
-
-deps-app - verify the presence of dependencies or install them.
 
 =head1 SYNOPSIS
 
