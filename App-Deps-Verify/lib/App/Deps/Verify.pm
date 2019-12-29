@@ -254,9 +254,10 @@ sub write_rpm_spec_text_from_yaml_file_to_fh
 }
 
 my %EXES_TRANSLATIONS = (
-    convert => 'imagemagick',
-    gm      => 'graphicsmagick',
-    node    => 'nodejs',
+    cookiecutter => 'python3-cookiecutter',
+    convert      => 'imagemagick',
+    gm           => 'graphicsmagick',
+    node         => 'nodejs',
 );
 
 sub write_rpm_spec_text_to_fh
