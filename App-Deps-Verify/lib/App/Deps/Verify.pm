@@ -1,6 +1,6 @@
 package App::Deps::Verify;
 
-# ABSTRACT: An app and API to verify the presence of dependencies (Perl 5 modules, python3 modules, executables, etc.
+# ABSTRACT: An app and API to verify the presence of dependencies (Perl 5 modules, python3 modules, executables, etc.)
 
 use strict;
 use warnings;
@@ -346,6 +346,10 @@ EOF
 1;
 
 =encoding utf8
+
+=head1 NAME
+
+App::Deps::Verify - app and API to verify the presence of dependencies (Perl 5 modules, python3 modules, executables, etc.)
 
 =head1 SYNOPSIS
 
