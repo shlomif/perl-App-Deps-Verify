@@ -40,6 +40,20 @@ sub list_perl5_modules_in_yamls
     );
 }
 
+sub list_python3_modules_in_yamls
+{
+    my ( $self, $args ) = @_;
+
+    return $self->list_missing_python3_modules(
+        {
+            inputs => [
+                map { $_->{required}->{py3_modules} }
+                    @{ $self->_load_yamls($args) }
+            ],
+        }
+    );
+}
+
 sub _find_exes
 {
     my ( $self, $args ) = @_;
@@ -137,7 +151,10 @@ sub list_missing_python3_modules
     my %not_found;
     foreach my $mods ( @{ $args->{inputs} } )
     {
-        my @required_modules = keys %$mods;
+        use Data::Dumper;
+
+        # die Dumper($mods);
+        my @required_modules = keys %{$mods};
 
     REQUIRED:
         foreach my $module (@required_modules)
@@ -417,6 +434,10 @@ Added in version 0.2.0.
 =head2 $obj->list_perl5_modules_in_yamls({filenames => [@FILENAMES]})
 
 Added in version 0.2.0.
+
+=head2 $obj->list_python3_modules_in_yamls({filenames => [@FILENAMES]})
+
+Added in version 0.12.0.
 
 =head2 $obj->list_missing_python3_modules({inputs => [\%hash1, \%hash2, ...]})
 
