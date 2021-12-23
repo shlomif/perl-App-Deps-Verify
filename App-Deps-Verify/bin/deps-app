@@ -5,9 +5,9 @@
 
 use strict;
 use warnings;
-use App::Deps::Verify::App::VerifyDeps;
+use App::Deps::Verify::App::VerifyDeps ();
 
-App::Deps::Verify::App::VerifyDeps->run;
+App::Deps::Verify::App::VerifyDeps->run();
 
 =head1 SYNOPSIS
 
