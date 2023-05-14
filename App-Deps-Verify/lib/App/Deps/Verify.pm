@@ -8,8 +8,8 @@ use 5.014;
 use Moo;
 
 use File::Which qw/ which /;
-use YAML::XS qw/ LoadFile /;
-use Path::Tiny qw/ path /;
+use YAML::XS    qw/ LoadFile /;
+use Path::Tiny  qw/ path /;
 
 sub _load_yamls
 {

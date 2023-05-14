@@ -5,7 +5,7 @@ use App::Deps::Verify::App::VerifyDeps -command;
 use strict;
 use warnings;
 
-use Path::Tiny qw/ path /;
+use Path::Tiny        qw/ path /;
 use App::Deps::Verify ();
 
 sub abstract { "list python3 dependencies from PyPI" }
